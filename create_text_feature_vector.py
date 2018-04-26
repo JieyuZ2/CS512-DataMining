@@ -25,6 +25,6 @@ for input_file in input_files:
         for line in inf:
             items = line.strip().split('\t')
             title = items[1]
-            feature_vector = vectorizer.transform([title]).toarray()
-            label = labels.index(items[3])
-            outf.write(','.join(feature_vector) + '\t' + label + '\n')
+            feature_vector = vectorizer.transform([title]).toarray()[0]
+            label = labels.index(items[2])
+            outf.write(','.join([str(i) for i in feature_vector]) + '\t' + str(label) + '\n')
