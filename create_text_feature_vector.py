@@ -6,7 +6,7 @@ with open(file, 'r') as f:
     labels = [line.strip() for line in f]
 
 
-vectorizer = CountVectorizer()
+vectorizer = CountVectorizer(lowercase=True, min_df=5)
 print('loading clean training data and fit vectorizer...')
 file = 'training.txt'
 with open(file, 'r') as f:
@@ -14,6 +14,7 @@ with open(file, 'r') as f:
 vectorizer.fit_transform(corpus)
 
 input_files = ['cleaned_data.txt', 'clean_training.txt', 'clean_validation.txt', 'clean_test_set.txt']
+input_files = ['training.txt', 'validation.txt', 'test_set.txt']
 for input_file in input_files:
     print('vectorize '+input_file+'...')
     if input_file == 'cleaned_data.txt':

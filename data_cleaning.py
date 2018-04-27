@@ -44,17 +44,13 @@ with open(output_file, 'w') as outf, open(input_file, 'r') as inf:
         items[1] = remove_rare_words(title, words_to_remove)
         outf.write('\t'.join(items)+'\n')
 
-
-input_files = ['training.txt', 'validation.txt', 'test_set.txt']
-for input_file in input_files:
-    print('preprocess '+input_file+'...')
-    output_file = 'clean_'+input_file
-    with open(output_file, 'w') as outf, open(input_file, 'r') as inf:
-        for line in inf:
-            items = line.strip().split('\t')
-            title = items[1]
-            items[1] = ' '.join(remove_rare_words(title, words_to_remove))
-            outf.write('\t'.join(items) + '\n')
-
-
-#id, title, venue, cited, cvenue =
+# input_files = ['training.txt', 'validation.txt', 'test_set.txt']
+# for input_file in input_files:
+#     print('preprocess '+input_file+'...')
+#     output_file = 'clean_'+input_file
+#     with open(output_file, 'w') as outf, open(input_file, 'r') as inf:
+#         for line in inf:
+#             items = line.strip().split('\t')
+#             title = items[1]
+#             items[1] = ' '.join(remove_rare_words(title, words_to_remove))
+#             outf.write('\t'.join(items) + '\n')
